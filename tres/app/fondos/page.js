@@ -1,13 +1,13 @@
 "use client";
 import { useState } from "react";
 
-export default function Fondos() {
+export default function Page() {
   const imagenes = [
-    "/cuarta.jpg",
-    "/segunda.jpg",
-    "/tercera.jpg",
-    "/quinta.jpg",
-    "/primera.jpg",
+    "/fondos/cuarta.jpg",
+    "/fondos/segunda.jpg",
+    "/fondos/tercera.jpg",
+    "/fondos/quinta.jpg",
+    "/fondos/primera.jpg",
   ];
 
   const [imagenActual, setImagenActual] = useState(imagenes[0]);
