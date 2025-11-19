@@ -1,7 +1,9 @@
 @import "tailwindcss";
 
+/* ================================
+   VARIABLES DE COLOR
+================================= */
 :root {
-  /* Colores base */
   --background: #020617; /* Azul muy oscuro */
   --foreground: #e0ffef; /* Verde neón suave */
 }
@@ -21,16 +23,30 @@
   }
 }
 
+/* ================================
+   FIX COMPLETO PARA WEBVIEW ANDROID
+================================= */
+
+/* El body NO debe usar flex, ni 100vh, 
+   ni background que tape los fondos dinámicos */
 body {
-  background: var(--background);
+  margin: 0;
+  padding: 0;
+  background-color: var(--background); /* NO usar background-image aquí */
   color: var(--foreground);
   font-family: 'Arial', sans-serif;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+
+  /* Evita movimientos raros en WebView */
+  overscroll-behavior: none;
+
+  /* Asegura buen renderizado en móviles */
+  -webkit-tap-highlight-color: transparent;
 }
 
-/* Para resaltar los botones y paneles con efecto neón */
+/* ================================
+   ESTILOS NEÓN
+================================= */
+
 button {
   box-shadow: 0 0 10px #00ff99, 0 0 20px #00ff99;
   transition: all 0.3s ease;
