@@ -4,8 +4,8 @@
    VARIABLES DE COLOR
 ================================= */
 :root {
-  --background: #020617; /* Azul muy oscuro */
-  --foreground: #e0ffef; /* Verde neón suave */
+  --background: #020617;
+  --foreground: #e0ffef;
 }
 
 @theme inline {
@@ -15,7 +15,7 @@
   --font-mono: var(--font-geist-mono);
 }
 
-/* Modo oscuro automático */
+/* Modo oscuro */
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #010a14;
@@ -24,39 +24,19 @@
 }
 
 /* ================================
-   FIX COMPLETO PARA WEBVIEW ANDROID
+   GLOBAL RESET
 ================================= */
 
-/* El body NO debe usar flex, ni 100vh, 
-   ni background que tape los fondos dinámicos */
 body {
   margin: 0;
   padding: 0;
-  background-color: var(--background); /* NO usar background-image aquí */
+
+  /* ❗ SIN fondo que interfiera con la pestaña de fondos */
+  background-color: var(--background);
+
   color: var(--foreground);
   font-family: 'Arial', sans-serif;
 
-  /* Evita movimientos raros en WebView */
   overscroll-behavior: none;
-
-  /* Asegura buen renderizado en móviles */
   -webkit-tap-highlight-color: transparent;
-}
-
-/* ================================
-   ESTILOS NEÓN
-================================= */
-
-button {
-  box-shadow: 0 0 10px #00ff99, 0 0 20px #00ff99;
-  transition: all 0.3s ease;
-}
-
-button:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 20px #00ff99, 0 0 40px #00ff99;
-}
-
-h1 {
-  text-shadow: 0 0 10px #00ff99, 0 0 20px #00ffcc;
 }
